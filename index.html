@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+*{margin: 0; padding: 0;}
+body{
+	width: 100%; height: 3000px;
+	background-color: #ededef;
+	font-family: "Microsoft YaHei";
+}
+.top{
+	width: 100%; height: 550px;
+	background: url("bg550.png") repeat-x;
+}
+.logo{
+	position: absolute;
+	top: 150px; left: 15%;
+	color: #fff;
+	font-size: 80px;
+	opacity: 0.5; filter: alpha(opacity:50);	
+}
+
+.form{
+	position: relative;
+	left: 61.8%; top: 150px;
+	width: 400px; height: 280px;
+	opacity: 0.5; filter: alpha(opacity:50);
+	color: #fff;
+}
+.lineRow{
+	width: 500px; height: 40px;
+	margin: 5px;
+}
+.span{
+	margin-left: 50px;
+	width: 250px; height: 30px;
+	padding-left: 5px;
+	font-family: "Microsoft YaHei"; font-size: 15px;
+}
+.span2{
+	margin-left: 46px;
+	width: 257px; height: 32px;
+	padding-left: 5px;
+	font-family: "Microsoft YaHei"; font-size: 15px;
+}
+
+#submit{
+	position: relative;
+	left: 260px; top: 40px;
+	width: 80px; height: 30px;
+	font-family: "Microsoft YaHei"; font-size: 15px;
+}
+.subbar{
+	position: fixed; top: 0;
+	width: 100%;
+	background: url("bg20.png") repeat-x;
+	z-index: 100;
+}
+.join{
+	position: absolute; top: 20px; left: 85%; z-index: 100;
+	width: 100px; height: 30px;
+	background: url("bg30.png"); color: #fff;	
+}
+.join a img {border: none;}
+
+.main{ 
+	width: 100%; height: 2000px;
+	background: url("bg-body.png") repeat-x;
+}
+.main div{
+	margin: 0px auto;
+	width: 960px; height: 500px;
+}
+#info1{
+	background: url("div1.png") no-repeat;
+	background-position: 360px 100px;
+}
+#info2{
+	background: url("div2.png") no-repeat;
+	background-position: 0px 100px;
+}
+#info3{
+	background: url("div3.png") no-repeat;
+	background-position: 360px 100px;
+}
+#info4{
+	background: url("div4.png") no-repeat;
+	background-position: 0px 100px;
+}
+#info5{
+	background: url("div5.png") no-repeat;
+	background-position: 360px 100px;
+}
+#info6{
+	background: url("div6.png") no-repeat;
+	background-position: 0px 100px;
+}
+#info7{
+	background: url("div7.png") no-repeat;
+	background-position: 360px 100px;
+}
+#info8{
+	background: url("div8.png") no-repeat;
+	background-position: 0px 100px;
+}
+.l-txt{
+	position: absolute;
+	color: #666; opacity: 0.6; filter: alpha(opacity:60);
+}
+.l-txt h1{
+	margin: 50px 0 0 0;
+	border-bottom: 1px solid #d4d4d5;
+	font-weight: lighter;
+}
+.l-txt h2{
+	margin: 25px 0 0 30px;
+	font-weight: lighter;
+}
+.l-txt ul li{
+	margin: 8px 0 0 70px;
+}
+#info7 div ul li{
+	width: 400px;	
+}
+.r-txt{
+	position: relative;
+	color: #666; opacity: 0.6; filter: alpha(opacity:60);	
+}
+.r-txt h1{
+	margin: 50px 0 0 0; padding: 0 0 0 800px;
+	border-bottom: 1px solid #d4d4d5;
+	font-weight: lighter;
+}
+.r-txt h2{
+	margin: 25px 0 0 610px;
+	font-weight: lighter;
+}
+.r-txt ul li{
+	margin: 8px 0 0 650px;
+}
+</style>
+
+<script type="text/javascript">
+
+function goTop(acceleration, time) {
+	acceleration = acceleration || 0.1;
+	time = time || 16;
+ 
+	var x1 = 0;
+	var y1 = 0;
+	var x2 = 0;
+	var y2 = 0;
+	var x3 = 0;
+	var y3 = 0;
+ 
+	if (document.documentElement) {
+		x1 = document.documentElement.scrollLeft || 0;
+		y1 = document.documentElement.scrollTop || 0;
+	}
+	if (document.body) {
+		x2 = document.body.scrollLeft || 0;
+		y2 = document.body.scrollTop || 0;
+	}
+	var x3 = window.scrollX || 0;
+	var y3 = window.scrollY || 0;
+ 
+	// 滚动条到页面顶部的水平距离
+	var x = Math.max(x1, Math.max(x2, x3));
+	// 滚动条到页面顶部的垂直距离
+	var y = Math.max(y1, Math.max(y2, y3));
+ 
+	// 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+	var speed = 1 + acceleration;
+	window.scrollTo(Math.floor(x / speed), Math.floor(y / speed));
+ 
+	// 如果距离不为零, 继续调用迭代本函数
+	if(x > 0 || y > 0) {
+		var invokeFunction = "goTop(" + acceleration + ", " + time + ")";
+		window.setTimeout(invokeFunction, time);
+	}
+}
+</script>
+
+</head>
+<body>
+<div class="top">
+	<div class="logo"><img src="jh.png"></div>
+	<div class="form">
+		<div class="lineRow">姓名<input type="text" class="span" name="name"/><span id="tipun" style="color:#fff"></span></div>
+		<div class="lineRow">手机<input type="text" class="span" name="phone"/></div>
+		<div class="lineRow">邮箱<input type="text" class="span" name="mail" placeholder="xx@xx.xx"/></div>
+		<div class="lineRow">职位
+			<select class="span2" name="department">
+				<option>web开发</option>
+				<option>移动开发</option>
+				<option>服务器运维</option>
+				<option>视传美工</option>
+				<option>资讯编辑</option>
+				<option>Feel电台</option>
+				<option>PT&下载</option>
+				<option>常务助理</option>
+            </select>
+		</div>
+		<div class="lineRow">标签<input type="text" class="span" name="tag" placeholder="五个词语形容自己，小于十五字"/></div>
+		<input type="button" id="submit" value="提交" />
+	</div>
+</div>
+
+<div class="subbar"><img src="bg20.png">
+<div class="join" id="join"><a href="#" onclick="goTop();return false;"><img src="join3.png"></a></div>
+</div>
+
+<div class="main">
+	<div id="info1">
+		<div class="l-txt">
+			<h1>Web开发</h1>
+			<h2>Web前端</h2>
+			<ul>
+				<li>会使用javascript编程，已经会的优先</li>
+				<li>另外熟悉html，css，有意向学习javascript的也可</li>
+			</ul>
+			<h2>Web后台</h2>
+			<ul>
+				<li>会php，或java，或python，已经会php的优先</li>
+				<li>会一种编程语言（C/C++,ruby……），并有意向学习php的人也可</li>
+			</ul>			
+		</div>
+	</div>
+	<div id="info2">
+		<div class="r-txt">
+			<h1>手机开发</h1>
+			<ul>
+				<li>对移动平台前景看好，会一种编程语言</li>
+				<li>非常有兴趣或者已经在手机端开发产品</li>
+			</ul>
+			<h2>IOS</h2>
+			<ul><li>有mac系统，基本已经学会oc</li></ul>
+			<h2>Android</h2>
+			<ul><li>会java，基本已经已经会使用sdk开发</li></ul>	
+			<h2>Windows Phone</h2>
+			<ul><li>使用WP，并对WP平台开发有所了解</li></ul>
+		</div>
+	</div>
+	<div id="info3">
+		<div class="l-txt">
+			<h1>服务器运维</h1><br/><br/><br/><br/>
+			<ul>
+				<li>熟悉网络架构，对网络基础知识有较深认识</li>
+				<li>了解一定量的linux系统的部署、调试、优化工作</li>
+				<li>会nginx apache2 mysql php等的web软件安装配置和日常维护</li>
+				<li>了解mysql数据库的性能优化及备份</li>
+				<li>熟练掌握sql语句，Shell/Cron，可编写维护及监控脚本</li>
+			</ul>
+		</div>
+	</div>
+	<div id="info4">
+		<div class="r-txt">
+			<h1>视传美工</h1><br/><br/><br/><br/>
+			<ul>
+				<li>负责精弘的宣传海报、网页视觉设计、产品视觉设计</li>
+				<li>要求有良好的艺术感</li>
+				<li>熟练使用PS等绘图软件</li>
+				<li>拒绝不与人交流的人，要能正常参会</li>
+				<li>艺术学院优先</li>
+			</ul>
+	</div>
+	<div id="info5">
+		<div class="l-txt">
+			<h1>资讯编辑</h1><br/><br/><br/><br/>
+			<ul>
+				<li>负责资讯信息更新、内容采编、线下活动策划</li>
+				<li>对互联网有浓厚的兴趣和了解</li>
+				<li>喜欢或希望分享自己的创意兴趣及接收的新鲜事</li>
+				<li>有丰富的写作经验或写作新闻经验者优先</li>				
+			</ul>
+		</div>
+	</div>
+	<div id="info6">
+		<div class="r-txt">
+			<h1>Feel电台</h1>
+			<h2>节目策划</h2>
+			<ul>
+				<li>要求有创意，不循规蹈矩，具备良好的沟通能力以及文字表达能力</li>
+				<li>对于电台节目有兴趣且有一定的想法</li>
+			</ul>
+			<h2>文字编辑</h2>
+			<ul>
+				<li>要求具有良好的文学素养，表达能力与沟通能力俱佳</li>
+				<li>人文学院优先，有相关经验优先</li>
+			</ul>	
+			<h2>后期处理</h2>
+			<ul><li>熟练音频后期剪辑或对此有兴趣，能与策划及主播进行良好的沟通</li></ul>
+		</div>
+	</div>
+	<div id="info7">
+		<div class="l-txt">
+			<h1>PT&下载</h1>
+			<h2>影视专题编辑</h2>
+			<ul>
+				<li>主要为精弘PT做影视专题服务，熟悉PT类资源分享站或者会论坛编辑排版的优先</li>
+				<li>热爱看电影、美剧、英剧等等，喜欢或善于影视评论优先</li>
+			</ul>
+			<h2>精弘PT发布员</h2>
+			<ul>
+				<li>发布的资源，具有优先置顶的权利；头衔是红色的</li>
+				<li>退役之后，给予精弘pt的贵宾（VIP）头衔</li>
+				<li>考核标准：一个月至少发布5个高质量资源</li>
+			</ul>	
+			<h2>精弘PT助理员</h2>
+			<ul>
+				<li>了解并会使用PT下载上传，能时常在线进行简单的站务管理和用户答疑</li>
+				<li>助理员有审核候选区，编辑趣味盒，查看用户ip等诸多权限，参与PT站整体的运营管理</li>
+			</ul>
+		</div>
+	</div>
+	<div id="info8">
+		<div class="r-txt">
+			<h1>常务助理</h1>
+			<h2>行政助理（朝晖）</h2>
+			<ul>
+				<li>做事有条理、具有良好的时间观念、较好的学习模仿能力、随和的生活态度</li>
+			</ul>
+			<h2>产品推广</h2>
+			<ul>
+				<li>希望有开源热情，对于开源的精神有较好的理解</li>
+				<li>善于产品推广，熟悉一般办公系统。有推广热情，积极好学</li>
+			</ul>
+			<h2>论坛助理</h2>
+			<ul>
+				<li>负责精弘财务、物品管理，文件资料整理归档</li>
+				<li>基本会电脑网络简单操作</li>
+				<li>有积极学习进取的心态，乐观开朗，有责任感</li>
+			</ul>					
+		</div>		
+	</div>
+</div>
+</body>
+</html>
